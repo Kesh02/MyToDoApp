@@ -23,6 +23,7 @@ class RecyclerItemTouchHelper(private val adapter: ToDoAdapter) :
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         val position = viewHolder.adapterPosition
         if (direction == ItemTouchHelper.LEFT) {
+            // show delete confirmation dialog
             val builder = AlertDialog.Builder(adapter.getContext())
             builder.setTitle("Delete Task")
             builder.setMessage("Are you sure you want to delete this task?")
@@ -37,6 +38,7 @@ class RecyclerItemTouchHelper(private val adapter: ToDoAdapter) :
             val dialog = builder.create()
             dialog.show()
         } else {
+            // edit the item
             adapter.editItem(position)
         }
     }
@@ -56,14 +58,16 @@ class RecyclerItemTouchHelper(private val adapter: ToDoAdapter) :
         val itemView = viewHolder.itemView
         val backgroundCornerOffset = 20
         if (dX > 0) {
+            //swiping to the left
             todo = ContextCompat.getDrawable(adapter.getContext(), R.drawable.baseline_edit_24)
             background = ColorDrawable(
                 ContextCompat.getColor(
                     adapter.getContext(),
-                    R.color.colorPrimaryDark
+                    R.color.purple
                 )
             )
-        } else {
+        } //swiping to right
+         else {
             todo = ContextCompat.getDrawable(adapter.getContext(), R.drawable.baseline_delete_24)
             background = ColorDrawable(Color.RED)
         }
