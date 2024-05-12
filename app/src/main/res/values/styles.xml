@@ -5,9 +5,38 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<!--    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">-->
+<!--        <item name="android:windowIsFloating">false</item>-->
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+<!--        <item name="android:windowSoftInputMode">adjustResize</item>-->
+<!--    </style>-->
+
+<!--    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">-->
+<!--        <item name="android:windowIsFloating">false</item>-->
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+<!--        <item name="android:windowSoftInputMode">adjustResize</item>-->
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+<!--        <item name="android:windowAnimationStyle">@style/BottomSheetAnimation</item>-->
+<!--    </style>-->
+
     <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/BottomSheetAnimation</item>
+        <item name="android:layout_gravity">center</item>
     </style>
+
+    <style name="BottomSheetAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+
+    <style name="PurpleButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/purple_button_background</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

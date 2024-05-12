@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.task_manager5.Model.ToDoModel
 
-
+//this cls is the intermediary between the Android application and the SQLite database
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, NAME, null, VERSION) {
 
     companion object {
@@ -24,7 +24,7 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, NAME, null, 
     private lateinit var db: SQLiteDatabase
 
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(CREATE_TODO_TABLE)
+        db?.execSQL(CREATE_TODO_TABLE) //create table
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -36,6 +36,7 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, NAME, null, 
         db = this.writableDatabase
     }
 
+    //create task
     fun insertTask(task: ToDoModel) {
         val cv = ContentValues().apply {
             put(TASK, task.task)
@@ -44,9 +45,11 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, NAME, null, 
         db.insert(TODO_TABLE, null, cv)
     }
 
+    //read task
     fun getAllTasks(): List<ToDoModel> {
         val taskList = mutableListOf<ToDoModel>()
         val query = "SELECT * FROM $TODO_TABLE"
+        //cursor - get row data
         val cur = db.rawQuery(query, null)
         cur.use {
             if (it.moveToFirst()) {

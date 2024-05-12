@@ -14,7 +14,7 @@ import com.example.task_manager5.Model.ToDoModel
 import com.example.task_manager5.Utils.DatabaseHandler
 import com.example.task_manager5.R
 
-
+//adapter is responsible for managing data in the recyclerview
 class ToDoAdapter(private val db: DatabaseHandler, private val activity: FragmentActivity) : RecyclerView.Adapter<ToDoAdapter.ViewHolder>() {
 
     private var todoList: List<ToDoModel> = listOf()

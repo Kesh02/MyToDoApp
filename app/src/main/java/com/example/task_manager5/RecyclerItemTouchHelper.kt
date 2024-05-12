@@ -63,7 +63,7 @@ class RecyclerItemTouchHelper(private val adapter: ToDoAdapter) :
             background = ColorDrawable(
                 ContextCompat.getColor(
                     adapter.getContext(),
-                    R.color.purple
+                    R.color.dark_purple
                 )
             )
         } //swiping to right

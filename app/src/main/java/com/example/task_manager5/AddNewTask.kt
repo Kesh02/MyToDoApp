@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,7 @@ class AddNewTask : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.new_task, container, false)
+        dialog?.window?.setGravity(Gravity.CENTER)
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         return view
     }
@@ -53,7 +55,7 @@ class AddNewTask : BottomSheetDialogFragment() {
                 newTaskSaveButton?.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
-                        R.color.purple
+                        R.color.colorAccent
                     )
                 )
             }
@@ -69,7 +71,7 @@ class AddNewTask : BottomSheetDialogFragment() {
                     newTaskSaveButton?.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
-                            R.color.purple
+                            R.color.colorAccent
                         )
                     )
                 }
